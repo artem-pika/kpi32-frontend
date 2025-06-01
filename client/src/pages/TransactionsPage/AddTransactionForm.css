@@ -1,0 +1,94 @@
+#add-transaction-form-container {
+  padding: 0.5rem 0rem 1.5rem 0rem;
+  border-top: 2.5px solid rgb(196, 199, 197);
+
+  display: flex;
+  justify-content: center;
+}
+
+#add-transaction-form {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+#add-transaction-form .input-container {
+  margin-right: 1rem;
+
+  position: relative; /* To make corresponding label positioned relatively to it */
+  display: flex;
+  flex-direction: column;
+}
+#add-transaction-form .input-container:last-of-type {
+  margin-right: 0;
+}
+#add-transaction-form .input-container:hover {
+  cursor: text;
+}
+
+#add-transaction-form input {
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  border: 2px solid rgb(196, 199, 197);
+  border-radius: 6px;
+
+  overflow-wrap: break-word;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#add-transaction-form input::placeholder {
+  color: rgb(182, 182, 182); 
+}
+#add-transaction-form input.date {
+  width: 7rem;
+}
+#add-transaction-form input.amount {
+  width: 7rem;
+}
+#add-transaction-form input.tags {
+  width: 15rem;
+}
+#add-transaction-form .input-container.invalid input {
+  border-color: rgb(234, 67, 53);
+}
+
+#add-transaction-form .input-container .input-label {
+  position: relative;
+  width: max-content;
+  left: 0.5rem;
+  top: 0.4rem;
+
+  padding: 0rem 0.1rem 0rem 0.1rem;
+  font-size: 0.75rem;
+  background-color: white;
+  color: rgb(87, 91, 95);
+}
+#add-transaction-form .input-container.invalid .input-label {
+  color: rgb(234, 67, 53);
+}
+
+#add-transaction-form .invalid-input-message-container {
+  display: flex;
+}
+#add-transaction-form .invalid-input-message-container span {
+  width: 0;
+  flex-grow: 1;
+  font-size: small;
+  color: rgb(234, 67, 53);
+}
+
+#add-transaction-form button {
+  margin-top: 0.8rem;
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.4rem 0.2rem 0.4rem;
+  border-radius: 100px;
+}
+#add-transaction-form button:first-of-type {
+  margin-left: 0.5rem;
+}
+#add-transaction-form button:hover {
+  background-color: rgb(240, 241, 241);
+  cursor: pointer;
+}
+#add-transaction-form button .material-symbols-outlined {
+  font-size: 1.4rem;
+}

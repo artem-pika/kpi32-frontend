@@ -1,0 +1,117 @@
+#analytics-form {
+  padding: 0rem 1rem 1rem 1rem;
+}
+
+#analytics-form .inputs {
+  display: block flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+#analytics-form .input-container {
+  position: relative; /* To make corresponding label positioned relatively to it */
+  display: flex;
+  flex-direction: column;
+}
+#analytics-form .input-container:hover {
+  cursor: text;
+}
+#analytics-form .input-container:nth-of-type(2) {
+  margin-right: 1rem;
+}
+
+#analytics-form input {
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  border: 2px solid rgb(196, 199, 197);
+  border-radius: 6px;
+
+  overflow-wrap: break-word;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#analytics-form .input-container:nth-of-type(1) input {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+#analytics-form .input-container:nth-of-type(2) input {
+  border-left: unset;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+#analytics-form input::placeholder {
+  color: rgb(182, 182, 182); 
+}
+#analytics-form input.date {
+  width: 7rem;
+}
+#analytics-form input.tags {
+  width: 16rem;
+}
+#analytics-form .input-container.invalid input {
+  border-color: rgb(234, 67, 53);
+}
+
+#analytics-form .input-container .input-label {
+  position: relative;
+  width: max-content;
+  left: 0.5rem;
+  top: 0.4rem;
+
+  padding: 0rem 0.1rem 0rem 0.1rem;
+  font-size: 0.75rem;
+  background-color: white;
+  color: rgb(87, 91, 95);
+}
+#analytics-form .input-container.invalid .input-label {
+  color: rgb(234, 67, 53);
+}
+
+#analytics-form .invalid-input-message-container {
+  display: flex;
+}
+#analytics-form .invalid-input-message-container span {
+  width: 0;
+  flex-grow: 1;
+  font-size: small;
+  color: rgb(234, 67, 53);
+}
+
+#analytics-form button {
+  margin-top: 0.8rem;
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.4rem 0.2rem 0.4rem;
+  border-radius: 100px;
+}
+#analytics-form button:hover {
+  background-color: rgb(240, 241, 241);
+  cursor: pointer;
+}
+#analytics-form button .material-symbols-outlined {
+  font-size: 1.4rem;
+}
+
+#analytics-form output {
+  display: block;
+  margin-top: 1rem;
+
+  font-size: 1rem;
+}
+
+#analytics-form output p {
+  display: block;
+  font-weight: bolder;
+  white-space: pre;
+}
+#analytics-form output p.income {
+  margin-top: 0.5rem;
+}
+
+#analytics-form output p span {
+  font-family: monospace;
+}
+#analytics-form output p.spendings span {
+  color: red;
+}
+#analytics-form output p.income span {
+  color: green;
+}

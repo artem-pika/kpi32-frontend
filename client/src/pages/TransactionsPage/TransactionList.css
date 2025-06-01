@@ -1,0 +1,91 @@
+#transaction-list-container {
+  flex-grow: 1;
+  overflow-y: auto;
+
+  width: 100%;
+  padding-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column-reverse; /* To make default scrollbar position at the bottom */
+}
+
+#transaction-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#transaction-list li:first-child {
+  margin-top: auto;
+}
+#transaction-list li {
+  border-bottom: 1px solid rgb(196, 199, 197);
+}
+#transaction-list li:last-of-type {
+  border-bottom: none;
+}
+
+/* Non-editing mode */
+#transaction-list .transaction {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+}
+
+#transaction-list .transaction .value-field {
+  margin-right: 1.25rem;
+
+  overflow-wrap: break-word;
+  font-family: monospace;
+  font-size: 1rem;
+  color: rgb(95, 99, 104);
+}
+#transaction-list .transaction .value-field:last-of-type {
+  margin-right: 0;
+}
+#transaction-list .transaction .value-field:hover {
+  cursor: text;
+}
+
+#transaction-list .transaction .value-field.date {
+  width: 7rem;
+  text-align: right;
+}
+#transaction-list .transaction .value-field.amount {
+  width: 7rem;
+  text-align: right;
+}
+#transaction-list .transaction .value-field.tags {
+  width: 15rem;
+}
+
+#transaction-list .transaction button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.4rem 0.3rem 0.4rem;
+  border-radius: 10px;
+}
+#transaction-list .transaction button:first-of-type {
+  margin-left: 0.5rem;
+}
+#transaction-list .transaction button:hover {
+  background-color: rgb(240, 241, 241);
+  cursor: pointer;
+}
+#transaction-list .transaction .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+/* Editing mode */
+#transaction-list .transaction.editing .value-field {
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  border-bottom: 2px solid rgb(196, 199, 197);
+  border-radius: 6px;
+
+  text-align: left;
+}
+#transaction-list .transaction.editing .value-field.invalid {
+  color: rgb(234, 67, 53);
+  border-color: rgb(234, 67, 53);
+}

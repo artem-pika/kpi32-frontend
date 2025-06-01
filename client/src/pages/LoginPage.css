@@ -1,0 +1,89 @@
+#login-form-container {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#login-form h1 {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin: 1rem;
+}
+
+#login-form .input-container {
+    position: relative; /* To make corresponding label positioned relatively to it */
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form input {
+  width: 16rem;
+  padding: 0.6rem;
+  border: 2px solid rgb(196, 199, 197);
+  border-radius: 6px;
+
+  font-size: 1rem;
+}
+#login-form input:disabled {
+  color: rgb(196, 199, 197);
+}
+#login-form .input-container.invalid input {
+  border-color: rgb(234, 67, 53);
+}
+
+#login-form .input-container .input-label {
+    position: relative;
+    width: max-content;
+    left: 0.5rem;
+    top: 0.4rem;
+
+    padding: 0rem 0.1rem 0rem 0.1rem;
+    font-size: 0.8rem;
+    background-color: white;
+    color: rgb(87, 91, 95);
+}
+#login-form .input-container.invalid .input-label {
+  color: rgb(234, 67, 53);
+}
+
+#login-form .invalid-input-message {
+  font-size: small;
+  color: rgb(234, 67, 53);
+}
+
+#login-form button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem 0rem 1rem 0rem;
+  border-radius: 6px;
+  background-color: #0842a0;
+  color: white;
+  text-align: center;
+}
+#login-form button:hover {
+  cursor: pointer;
+}
+#login-form button:disabled {
+  background-color: rgb(87, 91, 95);
+}
+
+#register-link {
+  color: #0842a0;
+}
+#register-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#login-form-container .footnote {
+  margin-top: 0.5rem;
+}
