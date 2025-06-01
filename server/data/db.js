@@ -1,18 +1,21 @@
 import Database from 'better-sqlite3';
-// import bcrypt from 'bcryptjs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import bcrypt from 'bcryptjs';
 
-const dbPath = './data/transactions.db';
+const currentDirPath = path.dirname(fileURLToPath(import.meta.url));
+const dbPath = path.join(currentDirPath, 'transactions.db');
 const db = new Database(dbPath);
 
 db.exec(`
   PRAGMA foreign_keys = ON;
 `);
 
-// db.exec(`
-//   DROP TABLE IF EXISTS transaction_tags;
-//   DROP TABLE IF EXISTS transactions;
-//   DROP TABLE IF EXISTS users;
-// `);
+db.exec(`
+  DROP TABLE IF EXISTS transaction_tags;
+  DROP TABLE IF EXISTS transactions;
+  DROP TABLE IF EXISTS users;
+`);
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
@@ -248,36 +251,36 @@ export function calcTotalIncome(userId, startDate, endDate, tags) {
 
 // Fill with sample data
 
-// let aliceId = insertNewUser('alice', await bcrypt.hash('1234', 10));
-// addNewTransaction(aliceId, {date: '01-01-2025', amount: '-185.00', tags: '#food'});
-// addNewTransaction(aliceId, {date: '04-01-2025', amount: '-674.06', tags: '#food'});
-// addNewTransaction(aliceId, {date: '04-01-2025', amount: '-293.00', tags: '#food'});
-// addNewTransaction(aliceId, {date: '07-01-2025', amount: '-46.00', tags: '#food #water'});
-// addNewTransaction(aliceId, {date: '07-01-2025', amount: '+3000.00', tags: ''});
-// addNewTransaction(aliceId, {date: '08-01-2025', amount: '-212.00', tags: '#food'});
-// addNewTransaction(aliceId, {date: '11-01-2025', amount: '-686.96', tags: '#food'});
-// addNewTransaction(aliceId, {date: '11-01-2025', amount: '-330.00', tags: '#food'});
-// addNewTransaction(aliceId, {date: '12-01-2025', amount: '-46.00', tags: '#food #water'});
-// addNewTransaction(aliceId, {date: '14-01-2025', amount: '+1000.00', tags: ''});
-// addNewTransaction(aliceId, {date: '15-01-2025', amount: '-162.00', tags: '#food'});
-// addNewTransaction(aliceId, {date: '17-01-2025', amount: '-699.00', tags: '#hygiene'});
-// addNewTransaction(aliceId, {date: '17-01-2025', amount: '-46.00', tags: '#food #water'});
-// addNewTransaction(aliceId, {date: '18-01-2025', amount: '+1000.00', tags: ''});
-// addNewTransaction(aliceId, {date: '18-01-2025', amount: '-674.28', tags: '#food'});
-// addNewTransaction(aliceId, {date: '18-01-2025', amount: '-308.00', tags: '#food'});
-// addNewTransaction(aliceId, {date: '22-01-2025', amount: '-221.00', tags: '#food'});
-// addNewTransaction(aliceId, {date: '22-01-2025', amount: '-46.00', tags: '#food #water'});
-// addNewTransaction(aliceId, {date: '22-01-2025', amount: '+4000.00', tags: ''});
-// addNewTransaction(aliceId, {date: '25-01-2025', amount: '-669.49', tags: '#food'});
-// addNewTransaction(aliceId, {date: '25-01-2025', amount: '-300.00', tags: '#food'});
-// addNewTransaction(aliceId, {date: '28-01-2025', amount: '-46.00', tags: '#food #water'});
-// addNewTransaction(aliceId, {date: '29-01-2025', amount: '-276.78', tags: '#food'});
-// addNewTransaction(aliceId, {date: '29-01-2025', amount: '+2000.00', tags: ''});
-// addNewTransaction(aliceId, {date: '30-01-2025', amount: '-1171.49', tags: '#food'});
-// addNewTransaction(aliceId, {date: '31-01-2025', amount: '-2000.00', tags: '#savings'});
-// addNewTransaction(aliceId, {date: '31-01-2025', amount: '-1500.00', tags: '#living-place #rent'});
-// addNewTransaction(aliceId, {date: '31-01-2025', amount: '-260.00', tags: '#living-place #electricity'});
-// addNewTransaction(aliceId, {date: '31-01-2025', amount: '-103.00', tags: '#living-place #internet'});
+let aliceId = insertNewUser('alice', await bcrypt.hash('1234', 10));
+addNewTransaction(aliceId, {date: '01-01-2025', amount: '-185.00', tags: '#food'});
+addNewTransaction(aliceId, {date: '04-01-2025', amount: '-674.06', tags: '#food'});
+addNewTransaction(aliceId, {date: '04-01-2025', amount: '-293.00', tags: '#food'});
+addNewTransaction(aliceId, {date: '07-01-2025', amount: '-46.00', tags: '#food #water'});
+addNewTransaction(aliceId, {date: '07-01-2025', amount: '+3000.00', tags: ''});
+addNewTransaction(aliceId, {date: '08-01-2025', amount: '-212.00', tags: '#food'});
+addNewTransaction(aliceId, {date: '11-01-2025', amount: '-686.96', tags: '#food'});
+addNewTransaction(aliceId, {date: '11-01-2025', amount: '-330.00', tags: '#food'});
+addNewTransaction(aliceId, {date: '12-01-2025', amount: '-46.00', tags: '#food #water'});
+addNewTransaction(aliceId, {date: '14-01-2025', amount: '+1000.00', tags: ''});
+addNewTransaction(aliceId, {date: '15-01-2025', amount: '-162.00', tags: '#food'});
+addNewTransaction(aliceId, {date: '17-01-2025', amount: '-699.00', tags: '#hygiene'});
+addNewTransaction(aliceId, {date: '17-01-2025', amount: '-46.00', tags: '#food #water'});
+addNewTransaction(aliceId, {date: '18-01-2025', amount: '+1000.00', tags: ''});
+addNewTransaction(aliceId, {date: '18-01-2025', amount: '-674.28', tags: '#food'});
+addNewTransaction(aliceId, {date: '18-01-2025', amount: '-308.00', tags: '#food'});
+addNewTransaction(aliceId, {date: '22-01-2025', amount: '-221.00', tags: '#food'});
+addNewTransaction(aliceId, {date: '22-01-2025', amount: '-46.00', tags: '#food #water'});
+addNewTransaction(aliceId, {date: '22-01-2025', amount: '+4000.00', tags: ''});
+addNewTransaction(aliceId, {date: '25-01-2025', amount: '-669.49', tags: '#food'});
+addNewTransaction(aliceId, {date: '25-01-2025', amount: '-300.00', tags: '#food'});
+addNewTransaction(aliceId, {date: '28-01-2025', amount: '-46.00', tags: '#food #water'});
+addNewTransaction(aliceId, {date: '29-01-2025', amount: '-276.78', tags: '#food'});
+addNewTransaction(aliceId, {date: '29-01-2025', amount: '+2000.00', tags: ''});
+addNewTransaction(aliceId, {date: '30-01-2025', amount: '-1171.49', tags: '#food'});
+addNewTransaction(aliceId, {date: '31-01-2025', amount: '-2000.00', tags: '#savings'});
+addNewTransaction(aliceId, {date: '31-01-2025', amount: '-1500.00', tags: '#living-place #rent'});
+addNewTransaction(aliceId, {date: '31-01-2025', amount: '-260.00', tags: '#living-place #electricity'});
+addNewTransaction(aliceId, {date: '31-01-2025', amount: '-103.00', tags: '#living-place #internet'});
 
-// let bobId = insertNewUser('bob', await bcrypt.hash('1234', 10));
-// addNewTransaction(bobId, {date: '01-01-2025', amount: '-60.00', tags: '#delivery'});
+let bobId = insertNewUser('bob', await bcrypt.hash('1234', 10));
+addNewTransaction(bobId, {date: '01-01-2025', amount: '-60.00', tags: '#delivery'});
